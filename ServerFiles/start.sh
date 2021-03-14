@@ -1,5 +1,9 @@
 #!/bin/bash
 trap 'kill -INT $PID' TERM
+
+echo "Updating/installing Valheim dedicated server"
+/home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/steam/valheimserver +app_update 896660 +quit
+
 export templdpath=$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=./linux64:$LD_LIBRARY_PATH
 export SteamAppId=892970
