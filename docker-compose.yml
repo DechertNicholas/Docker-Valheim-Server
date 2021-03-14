@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  ValheimServer:
+    image: dechertnicholas/dockervalheimserver:latest
+    command: ["./start.sh"]
+    ports:
+      - 13377:13377/udp
+      - 13378:13378/udp
+    working_dir: /home/steam
+    environment: 
+      SERVERNAME: DockerTestServer
+      WORLD: DockerTestWorld
+      PASSWORD: dockertestpass
+    volumes:
+      - valheimworld1:/home/steam/.config/unity3d/IronGate/Valheim/worlds
+
+volumes:
+  valheimworld1:
